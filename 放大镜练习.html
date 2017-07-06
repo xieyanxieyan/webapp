@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>放大镜练习</title>
+<style type="text/css">
+*{
+	margin:0;
+	padding:0;
+}
+	#container{
+		position: relative;
+	}
+	#small-img{
+		width:400px;
+		height:400px;
+		position:relative;
+
+	}
+	#big-img{
+		position:absolute;
+		top:0;
+		left:400px;
+		overflow:hidden;
+		width:400px;
+		display:none;
+		height:400px;
+	}
+	#big-img img{
+		position:absolute;
+		top:0;
+		left:0;
+	}
+	#drag{
+		position:absolute;
+		width:200px;
+		height:200px;
+		opacity: .5;
+		background: #666;
+		filter:alpha(opacity=50);
+		left:0;
+		top:0;
+		display:none;
+	}
+#mask{
+	width:400px;
+	height:400px;
+	background:#ff0000;
+	position:absolute;
+	top:0;
+	left:0;
+	opacity: 0;
+	filter:alpha(opacity=0);
+}
+</style>
+</head>
+<body>
+<div id="container">
+	<div id="small-img">
+		<img src="1.jpg">
+		<div id="drag"></div>
+		<div id="mask"></div>
+	</div>
+	<div id="big-img">
+		<img src="2.jpg" id="big-pic">
+	</div>
+</div>
+<script type="text/javascript">
+	window.onload=function(){
+		var oSmallImg = document.getElementById("small-img");
+		var oDrag = document.getElementById("drag");
+		var oBigImg = document.getElementById("big-img");
+		var oBigPic = document.getElementById("big-pic");
+		var oMask = document.getElementById("mask");
+		oMask.onmouseover = function(){
+		    console.log('s');
+			oDrag.style.display = 'block';
+			oBigImg.style.display = 'block';
+		}
+		oMask.onmouseout = function(){
+			oDrag.style.display = "none";
+			oBigImg.style.display="none"
+
+			}
+		oMask.onmousemove = function(e){
+				e=e||window.event;
+				var top = e.clientY - oDrag.offsetHeight/2;
+				var left = e.clientX - oDrag.offsetWidth/2;
+				if(left<=0){
+					left=0;
+
+				}
+				if(top<=0){
+					top=0;
+				}
+				var maxX = oSmallImg.offsetWidth - oDrag.offsetWidth;
+				var maxY = oSmallImg.offsetHeight - oDrag.offsetHeight;
+				if(left>=maxX){
+					left=maxX;
+				}
+				if(top>=maxY){
+					top=maxY;
+				}
+				oDrag.style.top=top+"px";
+				oDrag.style.left=left+"px";
+				var FScaleX = left/maxX;
+				var FScaleY = top/maxY;
+				oBigPic.style.top = -FScaleY*(oBigPic.offsetHeight - oBigImg.offsetHeight)+'px';
+					oBigPic.style.left = -FScaleX*(oBigPic.offsetWidth - oBigImg.offsetWidth)+'px';
+		}
+	}
+</script>
+</body>
+</html>
