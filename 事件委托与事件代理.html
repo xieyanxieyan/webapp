@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul id="mylinks">
+        <li id="gosomewhere">go somewhere</li>
+        <li id="dosomething">do something</li>
+        <li id="sayHi">say Hi</li>
+    </ul>
+    <script>
+        var EventUtil = {
+
+            addHandler: function(element, type, handler){
+                if (element.addEventListener){
+                    element.addEventListener(type, handler, false);
+                } else if (element.attachEvent){
+                    element.attachEvent("on" + type, handler);
+                } else {
+                    element["on" + type] = handler;
+                }
+            },
+            getEvent: function(event){
+                return event ? event : window.event;
+            },
+            getTarget: function(event){
+                return event.target || event.srcElement;
+            },
+
+            preventDefault: function(event){
+                if (event.preventDefault){
+                    event.preventDefault();
+                } else {
+                    event.returnValue = false;
+                }
+            },
+            removeHandler: function(element, type, handler){
+                if (element.removeEventListener){
+                    element.removeEventListener(type, handler, false);
+                } else if (element.detachEvent){
+                    element.detachEvent("on" + type, handler);
+                } else {
+                    element["on" + type] = null;
+                }
+            }
+        };
+        var links = document.getElementById('mylinks');
+        EventUtil.addHandler(links,'click',function(event){
+            event = EventUtil.getEvent(event);
+            var target = EventUtil.getTarget(event);
+            switch(target.id){
+                case "dosomething":
+                    document.title="I change the douments's title";
+                    break;
+                case"gosomewhere":
+                    location.href="http://www.baidu.com";
+                    break;
+                case"sayHi":
+                    alert("hi");
+                    break;
+            }
+        })//事件委托
+
+    </script>
+</body>
+</html>
