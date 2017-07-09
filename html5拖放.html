@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖放</title>
+    <style>
+        #div1 {width:198px; height:66px;padding:10px;border:1px solid #aaaaaa;}
+    </style>
+</head>
+<body>
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+</div>
+<img id="drag1" src="1.jpg" alt="" draggable="true" ondragstart="drag(event)" width="336" height="69">
+<script>
+function allowDrop(ev){//阻止浏览器默认行为
+    ev.preventDefault();
+}
+function drag(ev){//开始拖动会发生什么
+    ev.dataTransfer.setData("Text",ev.target.id);
+}
+function drop(ev){//放置时会发生什么
+    ev.preventDefault();
+    var data=ev.dataTransfer.getData("Text");
+    ev.target.appendChild(document.getElementById(data));
+}
+</script>
+</body>
+</html>
