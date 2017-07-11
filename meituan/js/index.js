@@ -4,6 +4,9 @@
 $(function(){
 var $guideUI=$("#guide ul");
 var $navSpan = $("#nav span");
+    $("#menu li").on("tap", function(){
+        location.href = "detail.html";
+    });
     $navSpan.on("tap",function(){
         $(this).addClass('active').siblings().removeClass('active');
         $guideUI.css({
@@ -29,7 +32,9 @@ var $navSpan = $("#nav span");
         var top=$(this).css("top");
     $(this).animate({top:0},500,function(){
         $(this).css("top",top)
-    })
+    });
 
-    })
+    });
+
+
     });

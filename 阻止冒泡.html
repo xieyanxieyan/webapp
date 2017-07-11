@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a onclick="aaa(this)" href="#">123123</a>
+<ul id="ul" style="display:none;">
+    <li><a href = "#">Home</a></li>
+    <li><a href = "#">PC</a></li>
+    <li><a href = "#">music</a></li>
+    <li><a href = "#">I like</a></li>
+</ul>
+<script language = "javascript">
+    var ul=document.getElementById('ul')
+    function aaa(){
+        if(ul.style.display=='none'){
+            ul.style.display='block'
+        } else{
+//            ul.style.display=='none'
+            cancelBubble = true;
+        }
+    }
+    function stopBubble(e){
+        if(e&&e.stopPropagation){//非IE
+            e.stopPropagation();
+        }
+        else{//IE
+            window.event.cancelBubble=true;
+        }
+    }
+
+
+//    <a onclick=''>如果要阻止默认事件的触发，即默认的href事件，那么就需要调用如下函数：
+
+//    代码如下:
+        function stopDefault( e ) {
+            //阻止默认浏览器动作(W3C)
+            if ( e && e.preventDefault )
+                e.preventDefault();
+            //IE中阻止函数器默认动作的方式
+            else
+                window.event.returnValue = false;
+            return false;
+        }
+</script>
+</body>
+</html>
