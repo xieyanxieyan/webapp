@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class Welcome extends CI_Controller {
 
 	/**
@@ -18,6 +17,7 @@ class Welcome extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+
 	public function index()
 	{
 		$this->load->view('index');
@@ -26,25 +26,9 @@ class Welcome extends CI_Controller {
     {
 	    $this->load->view('detail');
     }
-    public function login_page()
+    public function success()
     {
-        $this->load->view('login');
-    }
-    public function register_page()
-    {
-        $this->load->view('register');
-    }
-    public function login(){
-        $username = $this->input->post('username');
-        $password = $this->input->post('password');
-        $this->load->model('user_model');
-        $row=$this->user_model->get_by_username_password($username,$password);
-        if($row){
-            echo"登录成功";
-        }
-        else{
-            echo"登录失败";
-        }
+        $this -> load -> view('success');
     }
 
 

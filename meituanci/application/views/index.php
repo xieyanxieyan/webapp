@@ -26,8 +26,21 @@
     <div id="search">
         <input type="text" placeholder="请输入商家/品类/商圈">
     </div>
+    <div data-role="popup" id="popupMenu" data-theme="a">
+                <ul data-role="listview" data-inset="true" style="min-width:2rem;">
+                        <li><a href="<?php echo site_url(); ?>user/user_detail">个人信息</a></li>
+                        <li><a href="<?php echo site_url(); ?>user/logout">退出登录</a></li>
+                    </ul>
+    </div>
     <div id="mine">
-        <span>我的</span>
+        <?php
+            $userinfo = $this->session->userinfo;
+            if($userinfo){
+                echo " <a href=\"#popupMenu\" data-rel=\"popup\" data-transition=\"slideup\">". $userinfo->username. "</a>>";
+            }else{
+                echo "<span id='login'>登录</span>";
+            }
+        ?>
     </div>
 
 </div>
@@ -140,6 +153,7 @@
 <div class="guess">
 <h3>猜你喜欢</h3>
    <ul id="menu">
+<!--       --><?php //$productinfo = $this->session->productinfo?>
        <li>
            <img src="img/img/xianyuxian.jpg" alt="">
             <div class="brand">

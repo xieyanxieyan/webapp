@@ -8,7 +8,7 @@ $(document).on('pageinit',function(){
     var $username = $('#username');
     var $password = $('#password');
     $('#login_page').on('tap',function(){
-        location.href='welcome/login_page'
+        location.href='user/login_page'
     });
     $username.on('blur',function(){
         $.post('user/check_username',{

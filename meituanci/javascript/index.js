@@ -36,5 +36,16 @@ $(function(){
 
     });
 
+    $("#login").on('tap',function(){
+        console.log("zenmele");
+        console.log("zenmele");
+        location.href="user/login_page"
+    })
+    $("#user-detail").on("tap", function(){
+        location.href = "user/user_detail";
+    });
 
+    $("#logout").on("tap", function(){
+        location.href = "user/logout";
+    });
 });
