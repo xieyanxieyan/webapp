@@ -25,20 +25,21 @@
             团购详情
         </div>
         <div id="collect">
-            <span>收藏</span>
+            <span id="collect-btn" class="<?php echo $row->collect=='取消'?'active':''?>"><?php echo $row->collect?></span>
             <span>导航</span>
         </div>
     </div>
     <div role="main" class="ui-content">
         <div id="banner">
             <div class="product-name">
-                <p>鲜芋仙</p>
-                <p>10元代金券一份</p>
+                <p><?php echo $row->product_name?></p>
+                <p><?php echo $row->description?></p>
             </div>
         </div>
         <div id="price">
-            <span class="preferential-price"><span>7.5</span>元</span>
-            <span>门市价：10元</span>
+            <input type="hidden" id="hidden-product-id" value="<?php echo $row->product_id?>">
+            <span class="preferential-price"><span><?php echo $row->discount_price?></span>元</span>
+            <span>门市价：<?php echo $row->price?>元</span>
             <button data-role="none" class="buy">立即购买</button>
         </div>
         <div id="explain">

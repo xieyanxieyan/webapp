@@ -18,6 +18,7 @@ class User_model extends CI_Model
            'username'=>$username
         ))->row();
     }
+
     public function insert_user($username,$password)
     {
        $data = array(

@@ -5,7 +5,9 @@ $(function(){
     var $guideUI=$("#guide ul");
     var $navSpan = $("#nav span");
     $("#menu li").on("tap", function(){
-        location.href = "welcome/detail";
+        var productId = $(this).children('.product_id').val();
+        console.log(productId );
+        location.href = "welcome/detail/"+productId;
     });
     $navSpan.on("tap",function(){
         $(this).addClass('active').siblings().removeClass('active');
@@ -37,8 +39,6 @@ $(function(){
     });
 
     $("#login").on('tap',function(){
-        console.log("zenmele");
-        console.log("zenmele");
         location.href="user/login_page"
     })
     $("#user-detail").on("tap", function(){

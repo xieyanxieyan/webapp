@@ -11,6 +11,7 @@ class User extends CI_Controller {
         parent::__construct();
         $this -> load -> model("user_model");
         $this -> load -> model("order_model");
+        $this->load->model("product_model");
     }
 
     public function login_page()
@@ -47,10 +48,18 @@ class User extends CI_Controller {
             echo 'yes';
         }
     }
+    public function check_logined(){
+        $userinfo = $this->session->userdata('userinfo');
+        if(empty($userinfo)){
+            echo 'no';
+        }else{
+            echo 'yes';
+        }
+    }
     public function logout()
     {
         $this->session->unset_userdata('userinfo');
-        redirect("welcome\index");
+        redirect("welcome/index");
     }
     public function register()
     {
@@ -61,6 +70,18 @@ class User extends CI_Controller {
             redirect("user/login_page");
         }
     }
+    public function cancel_collect(){
+        $product_id=$this->input->get('productId');
+        $userinfo = $this->session->userdata('userinfo');
+        $user_id = $userinfo -> user_id;
+        $rows = $this->product_model ->cancel_collect($user_id,$product_id);
+        if($rows>0){
+            echo 'success';
+        }
+        else{
+            echo 'fail';
+        }
+    }
     public function user_detail()
     {
         $userinfo = $this->session->userdata('userinfo');;
@@ -69,6 +90,18 @@ class User extends CI_Controller {
         $this->load->view('user_detail', array(
             "order_list" => $order_list
         ));
+    }
+    public function collect(){
+        $product_id = $this->input->get('productId');
+//        vardump( $product_id);
+        $userinfo = $this->session->userdata('userinfo');;
+        $user_id = $userinfo -> user_id;
+        $rows = $this->product_model->add_collect($user_id,$product_id);
+        if($rows>0){
+            echo 'success';
+        }else{
+            echo 'fail';
+        }
     }
 
 }
