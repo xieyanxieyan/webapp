@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let tom = {name:"tom",age:16}
+    function person(name,age){
+        let obj = {};
+        obj.age = age;
+        obj.name = name;
+        obj.sayHello = function(){
+            alert('hello'+this.name);
+        };
+        console.log(obj);
+        return obj.sayHello();
+    }
+    let BOM = person('Tom',16);
+</script>
+</body>
+</html>
