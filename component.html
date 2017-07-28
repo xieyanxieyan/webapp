@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1">
+    <button id="btn">click me</button>
+    <div>1111</div>
+    <mytag :parent-msg="hello" :parent-msg2="msg"></mytag>
+</div>
+<script src="javascript/vue.min.js"></script>
+<script>
+   Vue.component('mytag',{
+       template:'<div>{{parentMsg2}}<button @click="childclick">child click</button></div>',
+       props:['parentMsg','parentMsg2']
+   }) ;
+   new Vue({
+       el:'#div1',
+       data:{
+           msg:'hehehe'
+       },
+       methods:{
+           clickme:function(){
+                this.msg="hehehe";
+           }
+       }
+   })
+</script>
+</body>
+</html>
