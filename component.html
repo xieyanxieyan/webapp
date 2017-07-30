@@ -6,24 +6,33 @@
 </head>
 <body>
 <div id="div1">
-    <button id="btn">click me</button>
-    <div>1111</div>
-    <mytag :parent-msg="hello" :parent-msg2="msg"></mytag>
+    <button id="btn" @click="clickme">click me</button>
+    <div>{{mymsg}}</div>
+    <mytag :parent-msg="hello" :parent-msg2="msg" v-on:receive="reciveMsg"></mytag>
 </div>
-<script src="javascript/vue.min.js"></script>
+<script src="javascript/vue.js"></script>
 <script>
    Vue.component('mytag',{
        template:'<div>{{parentMsg2}}<button @click="childclick">child click</button></div>',
-       props:['parentMsg','parentMsg2']
+       props:['parentMsg','parentMsg2'],
+       methods:{
+           childclick:function(){
+               this.$emit('receive','hello')
+           }
+       }
    }) ;
    new Vue({
        el:'#div1',
        data:{
-           msg:'hehehe'
+           msg:'hehehe',
+           myMsg:''
        },
        methods:{
            clickme:function(){
                 this.msg="hehehe";
+           },
+           receiveMsg:function(childmsg){
+this.myMsg=childmsg;
            }
        }
    })
