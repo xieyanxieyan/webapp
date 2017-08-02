@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //动态添加javascrit资源
+    var script = document.createElement('script');
+    var head = document.getElementsByTagName("head")[0];
+    script.type = 'text/javascript';
+    script.src = "//i.alicdn.com/resource.js";
+    //绑定资源加载成功事件
+    script.onreadystatechange= function(){
+        //判断资源是否加载完成
+        if(/^(loaded|complete)$/.test(script.readyState)){
+            script.onreadystatechange = null;
+//            ........
+        }
+    }
+    //绑定资源加载失败事件
+    script.onerror = function(){
+
+    }
+    head.insertBefore(script,head.firstChild);
+</script>
+
+</body>
+</html>
