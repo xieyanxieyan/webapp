@@ -18,3 +18,5 @@ var_dump($a,$b,$c);
 unset($a,$b,$c);
 var_dump($a,$b,$c);
 echo '<br/>';
+$str=a1;
+echo ++$str;
