@@ -18,7 +18,11 @@
 <p></p>
 <p></p>
 <script>
+
+//    $('.dv','p')等价于$('p .dv')=>$('.dv',document.body)=>$('.dv',$('body'))
     //    console.log(document.getElementsByTagName('div'));
+//get(".dv",context,results);
+
     var arr=[1,2,3,4];
     var getTag=function (tag,results) {
         results=results||[];
@@ -66,8 +70,7 @@
     };
 each(get('#div'),function(){
     this.style.backgroundColor = 'skyblue'
-})
-
+});
 </script>
 </body>
 </html>

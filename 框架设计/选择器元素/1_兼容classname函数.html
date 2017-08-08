@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //如何判断浏览器不支持该方法
+    //如何实现该方法
+    //在全局作用域中（最终都要变成沙箱）；提供一个support对象
+    //里面提供所有与方法名相同的属性，值均为bool值，
+    //在浏览器加载js开始时，就进行能力判断，将与方法名相同的属性作为真和假进行存储
+    //那么凡是涉及到能力检测的时候就直接使用support即可。
+    var support = {};
+        support.getElementsByClassName = !!document.getElementsByClassName;
+//加!是为了把字符串或者方法变成bool值
+
+if(support.getElementsByClassName){
+//    return node.getElementsByClassName(className);
+alert('支持class');
+}else{
+//    自己实现
+    alert('不支持class')
+}
+</script>
+</body>
+</html>
