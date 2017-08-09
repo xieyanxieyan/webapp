@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width:400px;
+            height:50px;
+            margin:10px 0;
+
+        }
+        .c{border:1px solid red;}
+        .c1{
+            border:1px solid blue;
+        }
+        .c2{
+            border:1px solid black;
+        }
+    </style>
+    <script>
+
+    </script>
+</head>
+<body>
+<div class="c1"></div>
+<div class="c2"></div>
+<div class="c"></div>
+<div class="c1"></div>
+<script>
+    var getClass = function(className,results){
+        results = results||[];
+        var  tempArr,i;
+        //首先判断系统所提供的方法是否提供该功能
+        if(document.getElementsByClassName){
+            results.push.apply(results,document.getElementsByClassName(className))
+        }else{
+            //自定义实现，首先获得所有元素，然后再元素中找到符合要求的驾到数组中
+            tempArr = document.getElementsByTagName('*');
+            for(i=0;i<tempArr.length;i++){
+                //兼容：className或者getAttibute
+                if((' '+tempArr[i].className+' ')
+                        .indexOf(' '+className+' ') != -1){
+                    results.push(tempArr[i]);
+                }
+            }
+        }
+        return results;
+    };
+    var list = getClass ('c1');
+    console.log(list);
+    for(var k in list)
+    list[k].style.backgroundColor = 'yellow'
+</script>
+</body>
+</html>

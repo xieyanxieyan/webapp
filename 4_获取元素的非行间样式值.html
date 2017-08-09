@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function getStyle(object,oCss){
+        if(object.currentStyle){
+            return object.currentStyle[oCss];//IE
+        }else{
+            return getComputedStyle(object,null)[oCss];//非IE
+        }
+    }
+</script>
+</body>
+</html>

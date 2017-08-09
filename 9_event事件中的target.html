@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   document.onmouseover=function(e){
+       var e = e||window.event;
+       var Target = e.target||e.srcElement;
+       var from = e.relatedTarget||e.formElement;//鼠标来的地方，后面的是IE；
+       var to = e.relatedTarget||e.toElement;
+
+   }
+</script>
+</body>
+</html>

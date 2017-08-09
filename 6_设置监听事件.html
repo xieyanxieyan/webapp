@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //设置监听事件
+    function addEvent(obj,type,fn){
+        if(obj.addEventListener){
+            obj.addEventListener(type,fn,false);//非IE
+        }else{
+            obj.attachEvent('on'+type,fn);//IE
+        }
+    }
+    //删除监听事件
+    function removeEvent(obj,type,fn){
+        if(obj.removeEventListener){
+            obj.removeEventListener(type,fn,false);
+        }else{
+            obj.detachEvent('on'+type,fn);//IE
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    document.getElementsByClassName('');
+function byClass1(oclass){
+    var tags = document.all?document. all:document.getElementsByTagName('*');
+    var arr = [];
+    for(var i =0;i<tags.length;i++)
+    {
+        var reg = new RegExp('\\b'+oclass+'\\b');
+        if(reg.test(tags[i].className)){
+            arr.push(tags[i]);
+        }
+    }
+    return arr;
+}
+function byClass2(parentId,oClass){
+    var parent = document.getElementById(parentId);
+    var tags = parent.all?parent.all:parent.getElementsByTagName('*')
+    var arr = [];
+    for(var i =0;i<tags.length;i++){
+        var reg = new RegExp('\\b'+oClass+'\\b','g');
+        if(reg.test(tags[i].className)){
+            arr.push(tags[i]);
+        }
+    }
+    return arr;
+}
+</script>
+</body>
+</html>

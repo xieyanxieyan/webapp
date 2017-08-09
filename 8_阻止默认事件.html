@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    document.onclick = function(e){
+        var e=e||window.event;
+        if(e.preventDefault){
+           e.preventDefault() ;//w3c标准
+        }else{
+            e.returnValue='false'
+        }
+    }
+</script>
+</body>
+</html>

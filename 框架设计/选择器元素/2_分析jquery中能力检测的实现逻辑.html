@@ -12,6 +12,7 @@ var support = {};
     support.getElementsByClassName=(function(){
         var isExist = !!document.getElementsByClassName;
         if(isExist&&typeof document.getElementsByClassName == 'function'){
+           //自己创建一些元素，并加上class属性，看是否可以获得加上的元素。
             var div = document.createElement('div');
             divWithClass = document.createElement('div');
             divWithClass.className = 'c';

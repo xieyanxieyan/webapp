@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //浏览器边缘的距离
+    function offsetTL(obj){//获取元素到浏览器边缘的距离，含边框
+        var ofL =0,ofT = 0;
+        while(obj){
+            ofL += obj.offsetLeft+obj.clientLeft;
+            ofT += obj.offsetTop+obj.clientTop;
+            obj = obj.offsetParent;
+        }
+        return {left:ofL,top:ofT}
+
+    }
+</script>
+</body>
+</html>

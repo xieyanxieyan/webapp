@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //火狐中的滚动事件
+    //火狐中的滚轮事件
+    document.addEventListener("DOMMouseScroll",function(event){
+        alert(event.detail);//若前滚的话为 -3，后滚的话为 3
+    },false)
+    //非火狐中的滚轮事件
+    document.onmousewheel=function(event){
+        alert('ddd'+event.detail);//前滚：0，后滚0
+    }
+
+</script>
+</body>
+</html>

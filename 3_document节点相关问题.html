@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function nextnode (obj){
+        if(obj.nextElementSibling){
+            return obj.nextElementSibling;
+        }else{
+            return obj.nextSibling;
+        }
+    }
+    function prenode(obj){
+        if(obj.previousElementSibling){
+            return obj.previousElementSibling;
+        }else{
+            return obj.previousSibling;
+        }
+    }
+    function firstnode(obj){
+        if(obj.firstElementChild){
+            return obj.firstElementChild;//非IE678不支持
+        }else{
+            return obj.firstChild;
+        }
+    }
+    function lastnode(obj){
+        if(obj.lastElementChild){
+            return obj.lastElementChild;
+        }else{
+            return obj.lastChild;
+        }
+    }
+</script>
+</body>
+</html>
