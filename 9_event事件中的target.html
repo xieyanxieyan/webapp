@@ -9,9 +9,8 @@
    document.onmouseover=function(e){
        var e = e||window.event;
        var Target = e.target||e.srcElement;
-       var from = e.relatedTarget||e.formElement;//鼠标来的地方，后面的是IE；
+       var from = e.relatedTarget||e.fromElement;//鼠标来的地方，后面的是IE；
        var to = e.relatedTarget||e.toElement;
-
    }
 </script>
 </body>

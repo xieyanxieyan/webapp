@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+Array.prototype.unique2 = function(){
+    var n={},r=[];//n为hash表，r为临时数组
+    for(var i = 0;i<this.length;i++){
+        if(!n[this[i]]){
+            n[this[i]]=true;//存入hash表
+            r.push(this[i]);
+        }
+    }
+    return r;
+}
+var n = new Array(2,3,5,1,2);
+console.log(n.unique2());
+</script>
+</body>
+</html>
