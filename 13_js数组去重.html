@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+Array.prototype.unique3 = function(){
+    var n = [this[0]];//结果数组
+    for(var i = 1;i<this.length;i++){
+        if(this.indexOf(this[i])==i)
+            n.push(this[i]);
+    }
+    return n;
+}
+var n = new Array(2,3,5,1,2);
+console.log(n.unique3());
+</script>
+</body>
+</html>
