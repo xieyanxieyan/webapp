@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form  id = "target" action="">
+    <select name="age" id="">
+        <option value="aaa">aaa</option>
+        <option value="bbb">bbb</option>
+    </select>
+    <input type="text" name="name" value = 'qiudedqing'>
+    <input type="password" name="password" value="1111">
+    <input type="hidden" name="salary" value="3333">
+    <textarea name="description" id="" cols="30" rows="10">description</textarea>
+    <input type="checkbox" name="hobby" checked value="football">Football
+    <input type="checkbox" name="hobby" value="basketball">Basketball
+    <input type="radio" name="sex" checked value="femail">Femail
+    <input type="radio" name="sex" value="Male">Male
+</form>
+<script>
+    function serializeForm(){
+        var form = document.forms[0];
+        console.log(form);
+        var serForm = '';
+        for(var key in form){
+            if(form.hasOwnProperty(key)){
+                serForm +='"'+form[key].name+'"'+
+                    ":"+'"'+form[key].value+'"'+",";
+            }
+        }
+        serForm = "{"+serForm.slice(0,serForm.length-1)+"}";
+        return JSON.parse(serForm)
+    }
+    serializeForm();
+    console.log(typeof (4399+''))
+    var foo={n:1};
+    (function(foo){
+        console.log(foo.n);
+        foo.n=3;
+        var foo = {n:2};
+        console.log(foo.n);
+    })(foo)
+    console.log(foo.n);
+</script>
+</body>
+</html>
