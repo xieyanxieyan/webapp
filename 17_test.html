@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var color= "green";
+    var test4399=  {
+        color:'blue',
+        getColor:function(){
+            var color="red";
+            alert(this.color)
+        }
+    }
+    var getColor= test4399.getColor;
+    getColor();
+    test4399.getColor();
+
+</script>
+</body>
+</html>

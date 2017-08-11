@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+console.log(Array.of(3));
+//promise解决js回调嵌套
+    var promise = new Promise(function(resolve,reject){
+        resolve(1);
+    });
+    promise.then(function(res){
+        console.log(res);
+    },function(res){
+        console.log(res+2222);
+    });
+    promise.then(function(res){
+        console.log(res);
+    }).catch(function(data){
+        console.log('报错');
+    })
+</script>
+</body>
+</html>

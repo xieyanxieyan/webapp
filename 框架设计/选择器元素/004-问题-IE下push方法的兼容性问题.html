@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面向对象</title>
+    <style>
+        div,p{
+            width:100px;
+            height:30px;
+            border:1px solid #e00;
+            margin:10px;
+        }
+    </style>
+</head>
+<script>
+    var myPush = function(target,els){
+        var j = target.length;
+        i=0;
+        while((target[j++]=els[i++])){};
+        target.length = j-1;
+    }
+</script>
+<body>
+<div></div>
+<div></div>
+<p></p>
+<p></p>
+<script>
+    //    console.log(document.getElementsByTagName('div'));
+    var arr=[1,2,3,4];
+    var getTag=function (tag,results) {
+        results=results||[];
+        try {
+            results.push.apply(results, document.getElementsByTagName(tag));
+        } catch(e) {
+            myPush(results,document.getElementsByTagName(tag))
+        }
+        return results;
+    };
+    var each = function(arr,fn){
+        for( var i=0;i<arr.length;i++){
+//            eval(string);
+            if(fn.call(arr[i],i,arr[i])===false){
+                break;
+            };
+        }
+    };
+    //    each(arr,function(i,v){
+    //        console.log(this);
+    //    });
+    /*var list1=getTag('div');
+     var list2 = getTag('p');
+     each(list1,function(){
+     this.style.backgroundColor='green';
+     });
+     each(list2,function(){
+     this.style.backgroundColor='blue';
+     })*/
+    each(getTag('div',getTag('div')),function(){
+        this.style.backgroundColor='pink'
+    })
+</script>
+</body>
+</html>

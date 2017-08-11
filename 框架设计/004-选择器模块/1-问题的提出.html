@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .rect{
+            width:400px;
+            height:50px;
+            margin:10px 0;
+
+        }
+        .c{border:1px solid red;}
+        .c1{
+            border:1px solid blue;
+        }
+        .c2{
+            border:1px solid black;
+        }
+    </style>
+    <script src="common.js"></script>
+</head>
+<body>
+<div class="c3">
+    <div class="c1 rect"></div>
+    <div class="c2 rect"></div>
+    <div class="c rect"></div>
+    <div class="c1 rect"></div>
+</div>
+<hr/>
+<div>
+    <div class="c1 rect"></div>
+    <div class="c2 rect"></div>
+    <div class="c rect"></div>
+    <div class="c1 rect"></div>
+</div>
+<script>
+    //        get('选择器'，父元素)
+    //        1.先假定父元素就是DOM对象
+    //首先应该考虑查找元素的三个方法
+
+    get('.c3')[0].style.border = '1px solid yellow'
+get('.c',get('.c3')[0])[0].style.backgroundColor="gray"
+</script>
+</body>
+</html>

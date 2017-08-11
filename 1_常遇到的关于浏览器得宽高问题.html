@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+  var winW = document.body.clientWidth||document.documentElement.clientWidth//网页可见区域宽度
+    var winH = document.body.clientHeight|document.documentElement.clientHeight;//网页可见区域高度
+    //以上不包括边框的宽高，如果是offsetWidth或者offsetHeight的话包括边框
+
+
+    var winWW = document.body.scrollWidth||document.documentElement.scrollWidth;//整个网页的宽
+    var winHH = document.body.scrollHeight||document.documentElement.scrollHeight;//整个网页的宽高
+
+    var scrollHeight = document.body.scrollTop||document.documentElement.scrollTop;//网页被卷去的高度
+    var scrollLeft = document.body.scrollLeft||document.documentElement.scrollLeft;//网页被卷去的宽度
+
+    var screenH = window.screen.height;//屏幕分辨率的高
+    var screenW = window.screen.width;//屏幕分辨率的宽
+    var screenX = window.screenLeft;//浏览器窗口相对于屏幕X的坐标
+    var screenXX = window.screenX;//FireFox 相对于屏幕X的坐标
+    var screenY  = window.screenTop;//浏览器窗口相对于屏幕的y的坐标（除FireFox外）
+    var screenYY = window.screenY;//FireFox相对于屏幕的Y坐标
+
+</script>
+</body>
+</html>
