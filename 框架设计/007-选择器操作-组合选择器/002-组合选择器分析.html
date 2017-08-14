@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .rect{
+            width:400px;
+            height:50px;
+            margin:10px 0;
+
+        }
+        .c{border:1px solid red;}
+        .c1{
+            border:1px solid blue;
+        }
+        .c2{
+            border:1px solid black;
+        }
+    </style>
+    <script src="common.js"></script>
+    <script>
+        //找出所有.c1,.c2的函数，加背景色
+        var myTrim  = function(str){
+            if(String.prototype.trim){
+                return str.trim();
+            }else{
+                return str.replace(/^\s+|s+$/g,'');
+            }
+        }
+        var select = function(selector,context,results){
+            results = results||[];
+            var newSelectors= selector.split(',');
+            //一般不考虑空格
+            each(newSelectors,function(i,v){
+                results.push.apply (results,get(myTrim(v),context))
+            })
+            return results;
+        }
+    </script>
+</head>
+<body>
+<div class="c3">
+    <div class="c1 rect"></div>
+    <div class="c2 rect"></div>
+    <div class= "c rect"></div>
+    <div class="c1 rect"></div>
+</div>
+<hr>
+<div>
+    <div class="c rect"></div>
+    <div class="c1 rect"></div>
+</div>
+<hr/>
+
+<div class="c3">
+    <div class="c"></div>
+</div>
+<script>
+    var list = select('.c1, .c2');
+    each(list,function(){
+        this.style.backgroundColor = 'red';
+    })
+</script>
+</body>
+</html>

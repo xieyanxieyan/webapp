@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var n = readline();
+    var x = readline().split(" ");
+    var indicator = true;
+    x.sort(compare);
+    function compare(value1, value2){
+        if(parseInt(value1)<parseInt(value2)){
+            return -1;
+        }else{
+            return 1;
+        }
+    }
+    var dx = parseInt(x[1])-parseInt(x[0]);
+    for(var i=2; i<x.length; i++){
+        if(dx!== parseInt(x[i])-parseInt(x[i-1])){
+            print("Impossible");
+            indicator = false;
+            break;
+        }
+    }
+    if(indicator){
+        print("Possible");
+    }
+</script>
+</body>
+</html>
